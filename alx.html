@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Dark Side of the Internet | Piracy Awareness</title>
+
+    <style>
+        :root {
+            --bg-color: #050508;
+            --card-bg: rgba(12, 14, 20, 0.7);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.2);
+            --text-main: #ffffff;
+            --text-muted: #9ca3af;
+            --accent-red: #e50914;
+            --accent-purple: #8b5cf6;
+            --accent-blue: #3b82f6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+       body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+
+        /* HEADER */
+
+  
+        .site-header {
+            background: rgba(5, 5, 8, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .logo-icon {
+            background: var(--accent-red);
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .logo span {
+            color: var(--accent-red);
+        }
+
+        .menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 65px;
+            right: 20px;
+            flex-direction: column;
+            gap: 0;
+            width: 180px;
+            padding: 10px;
+            background: #0c0e14;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            z-index: 9999;
+        }
+
+        .nav-links.show {
+            display: flex;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 12px 15px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #fff;
+        }
+
+        /* HERO */
+
+        .hero {
+            text-align: center;
+            padding: 65px 20px 45px;
+        }
+
+        .hero h1 {
+            color: #ffffff;
+            font-size: 44px;
+            line-height: 1.25;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 span {
+            color: #ff0000;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: auto;
+            color: #8fa8c4;
+            font-size: 16px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            color: #ff4444;
+            border: 1px solid #491b25;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+        }
+
+        .red-line {
+            width: 55px;
+            height: 4px;
+            background: #ff0000;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        /* MAIN CONTAINER */
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 0 20px 70px;
+        }
+
+        /* ARTICLE */
+
+        .article {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 9px;
+            padding: 32px;
+            margin-bottom: 25px;
+            scroll-margin-top: 90px;
+            transition: border-color 0.3s;
+        }
+
+        .article:hover {
+            border-color: #3b2029;
+        }
+
+        .category {
+            color: #ff0000;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .article h2 {
+            color: #ffffff;
+            font-size: 28px;
+            line-height: 1.35;
+            margin: 8px 0 16px;
+        }
+
+        .article h3 {
+            color: #ffffff;
+            font-size: 20px;
+            margin: 24px 0 10px;
+        }
+
+        .article p {
+            color: #adbed1;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        .article ul,
+        .article ol {
+            color: #adbed1;
+            padding-left: 25px;
+            margin: 10px 0 18px;
+        }
+
+        .article li {
+            margin-bottom: 9px;
+            padding-left: 4px;
+        }
+
+        .highlight {
+            border-left: 4px solid #ff0000;
+            background: #070b12;
+            padding: 18px 20px;
+            margin: 22px 0;
+            color: #c8d8e9;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .highlight strong {
+            color: #ff4444;
+        }
+
+        /* FINAL MESSAGE */
+
+        .final-message {
+            text-align: center;
+            border: 1px solid #491b25;
+            background: #100b12;
+            border-radius: 9px;
+            padding: 30px 20px;
+            margin-top: 25px;
+        }
+
+        .final-message h2 {
+            color: #ff0000;
+            font-size: 27px;
+            margin-bottom: 15px;
+        }
+
+        .final-message p {
+            color: #ffffff;
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .final-message .tagline {
+            color: #94A3B8;
+            font-size: 14px;
+            font-weight: normal;
+            margin-top: 15px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: var(--header);
+            border-top: 1px solid var(--card-border);
+            padding: 30px 6%;
+            text-align: center;
+        }
+
+        .footer-logo {
+            color: #ff0000;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .footer-logo span {
+            color: #ffffff;
+        }
+
+        .copyright {
+            color: #7188a2;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        /* RESPONSIVE DESIGN */
+
+        @media (max-width: 700px) {
+            header {
+                padding: 13px 18px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 65px;
+                right: 18px;
+                flex-direction: column;
+                gap: 0;
+                background: var(--header);
+                border: 1px solid var(--card-border);
+                border-radius: 8px;
+                padding: 10px;
+                min-width: 180px;
+            }
+
+            nav.show {
+                display: flex;
+            }
+
+            nav a {
+                padding: 10px;
+            }
+
+            .hero {
+                padding: 45px 15px 30px;
+            }
+
+            .hero h1 {
+                font-size: 33px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 0 14px 45px;
+            }
+
+            .article {
+                padding: 23px 18px;
+            }
+
+            .article h2 {
+                font-size: 24px;
+            }
+
+            .article h3 {
+                font-size: 18px;
+            }
+
+            .article p,
+            .article li {
+                font-size: 14px;
+            }
+
+            .final-message h2 {
+                font-size: 23px;
+            }
+        }
+    </style>
+    
+  </head>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">▶</div>
+                <span>MD</span>Hub4u
+            </a>
+
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+            <nav class="nav-links" id="navMenu">
+                <a href="index.html" class="active">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="disclaimer.html">Disclaimer</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero" id="home">
+        <span class="hero-label">ONLINE PIRACY AWARENESS</span>
+
+        <h1>THE DARK SIDE OF THE <span>INTERNET</span></h1>
+
+        <div class="red-line"></div>
+
+        <p>
+            Piracy: The Price of Free Entertainment.
+            Discover the impact of online piracy on filmmakers,
+            the entertainment industry, and internet users.
+        </p>
+    </section>
+
+    <!-- ARTICLE CONTENT -->
+
+    <main class="container">
+
+        <!-- INTRODUCTION -->
+
+        <article class="article" id="introduction">
+            <span class="category">Introduction</span>
+
+            <h2>Piracy: The Price of Free Entertainment</h2>
+
+            <p>
+                In today's digital world, watching movies and web series
+                has become easier than ever. However, alongside legal
+                streaming platforms, piracy websites offer unauthorized
+                access to copyrighted content. What appears to be free
+                entertainment can have serious consequences for filmmakers,
+                production companies, workers, and viewers.
+            </p>
+
+            <p>
+                Online piracy is not just about downloading movies;
+                it is about the value of creativity, the rights of
+                creators, and the safety of internet users.
+            </p>
+        </article>
+
+        <!-- SECTION 1 -->
+
+        <article class="article" id="what-is-piracy">
+            <span class="category">01 / Understanding Piracy</span>
+
+            <h2>1. What Is Online Piracy?</h2>
+
+            <p>
+                Online piracy involves downloading, streaming, or
+                distributing copyrighted movies and web series without
+                the necessary authorization. Unauthorized copies can
+                spread rapidly through websites, messaging groups,
+                and file-sharing networks.
+            </p>
+
+            <p>
+                Although the internet has made entertainment more
+                accessible, it has also made copyright infringement
+                easier to distribute on a large scale.
+            </p>
+
+            <p>
+                Not every free movie is pirated. Officially released
+                free content is legal when its distribution is authorized.
+            </p>
+        </article>
+
+        <!-- SECTION 2 -->
+
+        <article class="article" id="impact">
+            <span class="category">02 / Impact on Filmmakers</span>
+
+            <h2>2. How Piracy Affects Producers and Filmmakers</h2>
+
+            <p>
+                Producing a movie requires significant investment, time,
+                and teamwork. Producers spend money on actors, writers,
+                technicians, equipment, locations, editing, and marketing.
+            </p>
+
+            <p>
+                When a film is distributed illegally, some viewers may
+                choose pirated copies instead of purchasing cinema tickets
+                or using authorized streaming services. This can reduce
+                legitimate revenue, although not every pirated viewing
+                represents a lost sale.
+            </p>
+
+            <p>
+                The consequences can extend beyond producers. Independent
+                filmmakers may struggle to recover their investments,
+                investors may become more cautious, and production
+                companies may find it harder to finance future projects.
+            </p>
+
+            <div class="highlight">
+                Behind every movie are hundreds of people whose livelihoods
+                depend on a sustainable entertainment industry.
+            </div>
+        </article>
+
+        <!-- SECTION 3 -->
+
+        <article class="article" id="economy">
+            <span class="category">03 / Economic Impact</span>
+
+            <h2>3. The Economic Impact of Piracy in India</h2>
+
+            <p>
+                A study published through India's Ministry of Information
+                and Broadcasting in May 2025 estimated that online video
+                piracy cost India approximately US$1.2 billion in lost
+                revenue in 2024, with around 90 million users accessing
+                pirated video content.
+            </p>
+
+            <p>
+                These are research estimates, not confirmed losses
+                attributable to individual downloads. Nevertheless,
+                they indicate the potential scale of the problem.
+            </p>
+
+            <p>
+                Piracy can also affect employment opportunities,
+                investment, regional cinema, and independent productions.
+            </p>
+        </article>
+
+        <!-- SECTION 4 -->
+
+        <article class="article" id="dangers">
+            <span class="category">04 / Cybersecurity</span>
+
+            <h2>4. The Hidden Dangers for Viewers</h2>
+
+            <p>
+                Piracy can threaten consumers as well as creators.
+                Some unauthorized websites use deceptive advertisements,
+                suspicious downloads, and malicious software.
+            </p>
+
+            <h3>Potential Risks Include:</h3>
+
+            <ul>
+                <li>Malware infections and device damage.</li>
+                <li>Theft of personal information or account credentials.</li>
+                <li>Fraudulent payment requests.</li>
+                <li>Deceptive advertisements and unsafe redirects.</li>
+            </ul>
+
+            <p>
+                Not every piracy website contains malware, but downloading
+                files or installing applications from untrusted sources
+                can expose users to unnecessary risks.
+            </p>
+
+            <div class="highlight">
+                <strong>Think before you click.</strong>
+                You may be searching for a free movie, but you could
+                be risking your privacy and digital security.
+            </div>
+        </article>
+
+        <!-- SECTION 5 -->
+
+        <article class="article" id="law">
+            <span class="category">05 / Legal Awareness</span>
+
+            <h2>5. The Legal Consequences</h2>
+
+            <p>
+                India's Copyright Act, 1957, establishes protections
+                for copyrighted works and addresses copyright infringement.
+                The Cinematograph (Amendment) Act, 2023, also introduced
+                provisions addressing unauthorized recording and exhibition
+                of films in specified circumstances.
+            </p>
+
+            <p>
+                The legal consequences depend on the nature of the conduct
+                and the applicable provisions. Unauthorized distribution
+                can carry serious legal risks.
+            </p>
+        </article>
+
+        <!-- SECTION 6 -->
+
+        <article class="article" id="solutions">
+            <span class="category">06 / Take Action</span>
+
+            <h2>6. How Can We Stop Piracy?</h2>
+
+            <p>
+                Reducing piracy requires cooperation between governments,
+                entertainment companies, technology platforms, and audiences.
+            </p>
+
+            <h3>Viewers Can Help By:</h3>
+
+            <ol>
+                <li>Using authorized streaming platforms.</li>
+                <li>Choosing legitimate free movies when available.</li>
+                <li>Renting films legally instead of maintaining unnecessary subscriptions.</li>
+                <li>Avoiding suspicious download websites and applications.</li>
+                <li>Supporting filmmakers by watching their work through authorized channels.</li>
+                <li>Encouraging friends to choose legal entertainment.</li>
+            </ol>
+
+            <p>
+                The industry must also make legitimate content more
+                affordable, accessible, and convenient.
+            </p>
+        </article>
+
+        <!-- CONCLUSION -->
+
+        <article class="article" id="conclusion">
+            <span class="category">Conclusion / Final Message</span>
+
+            <h2>Conclusion: Think Before You Click</h2>
+
+            <p>
+                Online piracy may appear harmless, but widespread
+                unauthorized distribution can undermine legitimate
+                revenue, create uncertainty for filmmakers, and expose
+                viewers to cybersecurity risks.
+            </p>
+
+            <p>
+                A movie is more than a digital file. It represents the
+                hard work, creativity, and dreams of the people who made it.
+            </p>
+
+            <p>
+                We should demand affordable entertainment while respecting
+                the rights of creators. By choosing legitimate sources,
+                we can help build a safer digital environment and support
+                the future of cinema.
+            </p>
+
+            <div class="final-message">
+                <h2>Piracy is free, but creativity pays the price.</h2>
+
+                <p>SAY NO TO PIRACY.</p>
+                <p>SAY YES TO CREATIVITY.</p>
+
+                <p class="tagline">
+                    Save cinema. Support creators. Let creativity live.
+                </p>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer>
+        <div class="footer-logo">MD<span>Hub4u</span></div>
+
+        <p class="copyright">
+            © 2026 The Dark Side of the Internet.
+            Awareness through information.
+        </p>
+    </footer>
+
+    <!-- MOBILE MENU SCRIPT -->
+
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const mainNav = document.getElementById("mainNav");
+
+        menuBtn.addEventListener("click", function () {
+            const isOpen = mainNav.classList.toggle("show");
+
+            menuBtn.setAttribute("aria-expanded", isOpen);
+            menuBtn.setAttribute(
+                "aria-label",
+                isOpen ? "Close navigation menu" : "Open navigation menu"
+            );
+
+            menuBtn.textContent = isOpen ? "✕" : "☰";
+        });
+
+        mainNav.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                mainNav.classList.remove("show");
+                menuBtn.setAttribute("aria-expanded", "false");
+                menuBtn.setAttribute("aria-label", "Open navigation menu");
+                menuBtn.textContent = "☰";
+            });
+        });
+    </script>
+  
+    <script>
+        function toggleMenu() {
+            document.getElementById("navMenu").classList.toggle("show");
+        }
+    </script>
+
+
+</body>
+</html>
